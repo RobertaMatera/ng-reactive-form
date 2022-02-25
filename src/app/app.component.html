@@ -7,8 +7,10 @@
     >
       <img src="../assets/images/productIcon.png" alt="logo" class="logo" />
     </button>
-    <span class="padding-left">Ruby App</span>
+    <span class="padding-left">My products</span>
     <span class="example-spacer"></span>
-    <button mat-flat-button color="warn">Add Product</button>
+    <button mat-flat-button color="warn" (click)="openDialog()">
+      Add Product
+    </button>
   </mat-toolbar>
 </header>
