@@ -1,0 +1,26 @@
+#header .example-spacer {
+  flex: 1 1 auto;
+}
+
+#header .mat-toolbar.mat-primary {
+  background-color: var(--gray-c);
+}
+
+#header .logo {
+  max-width: 50px;
+}
+
+#header .padding-left {
+  padding-left: 15px;
+}
+
+#header .mat-flat-button.mat-warn,
+#header .mat-raised-button.mat-warn,
+#header .mat-fab.mat-warn,
+#header .mat-mini-fab.mat-warn {
+  background-color: var(--orange-c);
+}
+
+#header button:hover {
+  background-color: #ff3700 !important;
+}
