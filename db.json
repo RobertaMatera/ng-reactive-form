@@ -44,6 +44,42 @@
       "productComment": "cia cia cia",
       "date": "2022-03-14T23:00:00.000Z",
       "id": 5
+    },
+    {
+      "productName": "prodotto",
+      "productCategory": "Food",
+      "productFreshness": "Second Hand",
+      "productPrice": 58,
+      "productComment": "ddddd",
+      "date": "2022-02-27T23:00:00.000Z",
+      "id": 6
+    },
+    {
+      "productName": "prodotto",
+      "productCategory": "Books",
+      "productFreshness": "Second Hand",
+      "productPrice": 58,
+      "productComment": "ddddd",
+      "date": "2022-02-27T23:00:00.000Z",
+      "id": 7
+    },
+    {
+      "productName": "prodotto",
+      "productCategory": "Books",
+      "productFreshness": "Second Hand",
+      "productPrice": 1,
+      "productComment": "ddddd",
+      "date": "2022-02-27T23:00:00.000Z",
+      "id": 8
+    },
+    {
+      "productName": "Shafira Buckley",
+      "productCategory": "Sport",
+      "productFreshness": "Brand New",
+      "productPrice": 547,
+      "productComment": "Quia dolorem laudant",
+      "date": "2012-05-28T22:00:00.000Z",
+      "id": 9
     }
   ],
   "comments": [
