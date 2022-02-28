@@ -32,7 +32,7 @@ export class TableComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.productDataSource.filter = filterValue.trim().toLowerCase();
 
 
     if (this.dataSource.paginator) {
