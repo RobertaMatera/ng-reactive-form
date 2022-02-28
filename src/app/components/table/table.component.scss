@@ -11,3 +11,29 @@
 #table th {
   width: 10%;
 }
+
+#table tr:not(.hover):hover {
+  cursor: pointer;
+  background-color: var(--light-gray-c);
+}
+
+#table .edit-delete-btn {
+  zoom: 0.7;
+  margin: 0 5px;
+}
+
+#table .edit-btn {
+  background-color: var(--yellow-c);
+}
+
+#table .edit-btn:hover {
+  background-color: var(--strong-yellow-c);
+}
+
+#table .delete-btn {
+  background-color: var(--orange-c);
+}
+
+#table .delete-btn:hover {
+  background-color: var(--orange-c-hover);
+}

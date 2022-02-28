@@ -16,6 +16,7 @@ export class TableComponent implements OnInit {
     'productFreshness',
     'productPrice',
     'productComment',
+    'editDelete'
   ];
   dataSource!: MatTableDataSource<any>;
 
