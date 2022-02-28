@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-addProduct',
@@ -12,7 +12,12 @@ export class AddProductComponent implements OnInit {
   freshnessList: Array<string> = ['Brand New', 'Second Hand', 'Refurbished'];
   productForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<AddProductComponent> ) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) public editData: any,
+    private dialogRef: MatDialogRef<AddProductComponent>
+  ) {}
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
@@ -23,7 +28,9 @@ export class AddProductComponent implements OnInit {
       productComment: ['', Validators.required],
       date: ['', Validators.required],
     });
+    console.log(this.editData)
   }
+
 
   addProduct() {
     if (this.productForm.valid) {
@@ -38,5 +45,9 @@ export class AddProductComponent implements OnInit {
         },
       });
     }
+  }
+
+  closeAddProductDialog(){
+    this.dialogRef.close();
   }
 }
