@@ -21,3 +21,19 @@
 #dialog-form h2 {
   margin-bottom: 10px !important;
 }
+
+#dialog-form .bg-color-red {
+  background-color: var(--orange-c);
+}
+
+#dialog-form .bg-color-red:hover {
+  background-color: var(--orange-c-hover);
+}
+
+#dialog-form .bg-color-green {
+  background-color: var(--green-c);
+}
+
+#dialog-form .bg-color-green:hover {
+  background-color: var(--green-c-hover);
+}
