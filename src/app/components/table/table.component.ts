@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddProductComponent } from '../addProduct/addProduct.component';
 
 @Component({
   selector: 'app-table',
@@ -16,25 +18,30 @@ export class TableComponent implements OnInit {
     'productFreshness',
     'productPrice',
     'productComment',
-    'editDelete'
+    'editDelete',
   ];
   dataSource!: MatTableDataSource<any>;
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  @Input() productDataSource!:MatTableDataSource<any>
+  @Input() productDataSource!: MatTableDataSource<any>;
 
-  constructor( ) {}
+  constructor(private dialog: MatDialog,) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  editProduct(row: any) {
+    this.dialog.open(AddProductComponent, {
+      width: '30%',
+      data: row
+    });
   }
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.productDataSource.filter = filterValue.trim().toLowerCase();
-
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './components/dialog/dialog.component';
+import { AddProductComponent } from './components/addProduct/addProduct.component';
 import { ApiService } from './services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(AddProductComponent, {
       width: '30%',
     });
   }

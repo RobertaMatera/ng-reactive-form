@@ -35,6 +35,15 @@
       "productComment": "lorem ipsum",
       "date": "2022-02-27T23:00:00.000Z",
       "id": 4
+    },
+    {
+      "productName": "the lord of the ring",
+      "productCategory": "Books",
+      "productFreshness": "Second Hand",
+      "productPrice": 50,
+      "productComment": "cia cia cia",
+      "date": "2022-03-14T23:00:00.000Z",
+      "id": 5
     }
   ],
   "comments": [

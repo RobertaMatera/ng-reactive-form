@@ -4,15 +4,15 @@ import { ApiService } from 'src/app/services/api.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
+  selector: 'app-addProduct',
+  templateUrl: './addProduct.component.html',
+  styleUrls: ['./addProduct.component.scss'],
 })
-export class DialogComponent implements OnInit {
+export class AddProductComponent implements OnInit {
   freshnessList: Array<string> = ['Brand New', 'Second Hand', 'Refurbished'];
   productForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<DialogComponent> ) {}
+  constructor(private formBuilder: FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<AddProductComponent> ) {}
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
