@@ -1,6 +1,32 @@
 {
-  "productList":[
-
+  "productList": [
+    {
+      "productName": "prodotto",
+      "productCategory": "Sport",
+      "productFreshness": "Second Hand",
+      "productPrice": 58,
+      "productComment": "ddddd",
+      "date": "2022-02-27T23:00:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "prodotto2",
+      "productCategory": "Food",
+      "productFreshness": "Brand New",
+      "productPrice": 45,
+      "productComment": "lorem",
+      "date": "2022-02-26T23:00:00.000Z",
+      "id": 2
+    },
+    {
+      "productName": "pro",
+      "productCategory": "Sport",
+      "productFreshness": "Refurbished",
+      "productPrice": 6,
+      "productComment": "aaaaaaa",
+      "date": "2022-02-26T23:00:00.000Z",
+      "id": 3
+    }
   ],
   "comments": [
     {
