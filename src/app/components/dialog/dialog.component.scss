@@ -2,3 +2,22 @@
   width: 100%;
   overflow: hidden;
 }
+
+#dialog-form .example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+#dialog-form .example-radio-button {
+  margin: 5px;
+}
+
+#dialog-form .example-radio-group {
+  margin: 0 !important;
+}
+
+#dialog-form h2 {
+  margin-bottom: 10px !important;
+}
