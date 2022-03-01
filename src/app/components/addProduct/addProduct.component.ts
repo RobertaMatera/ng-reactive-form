@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -29,52 +29,65 @@ export class AddProductComponent implements OnInit {
       date: ['', Validators.required],
     });
 
-    console.log(this.editData)
+    console.log(this.editData);
 
     if (this.editData) {
-      this.productForm.controls['productName'].setValue(this.editData.productName)
-      this.productForm.controls['productCategory'].setValue(this.editData.productCategory)
-      this.productForm.controls['productFreshness'].setValue(this.editData.productFreshness)
-      this.productForm.controls['productPrice'].setValue(this.editData.productPrice)
-      this.productForm.controls['productComment'].setValue(this.editData.productComment)
-      this.productForm.controls['date'].setValue(this.editData.date)
+      this.productForm.controls['productName'].setValue(
+        this.editData.productName
+      );
+      this.productForm.controls['productCategory'].setValue(
+        this.editData.productCategory
+      );
+      this.productForm.controls['productFreshness'].setValue(
+        this.editData.productFreshness
+      );
+      this.productForm.controls['productPrice'].setValue(
+        this.editData.productPrice
+      );
+      this.productForm.controls['productComment'].setValue(
+        this.editData.productComment
+      );
+      this.productForm.controls['date'].setValue(this.editData.date);
     }
   }
 
-  addProduct() {
+  saveProduct() {
     if (!this.editData) {
       if (this.productForm.valid) {
-        this.api.postProduct(this.productForm.value).subscribe({
-          next: (res) => {
-            alert('Product added successfully');
-            this.productForm.reset();
-            this.dialogRef.close('save');
-          },
-          error: () => {
-            alert('Error while adding the product');
-          },
-        })
-      } else {
-        this.updateProduct()
+        this.createProduct();
       }
+    } else {
+      this.updateProduct();
     }
   }
 
-  updateProduct(){
-    this.api.putProduct(this.editData.id, this.productForm.value)
-    .subscribe({
-      next:(res)=>{
-        alert("Product updated Successfully");
+  createProduct() {
+    this.api.postProduct(this.productForm.value).subscribe({
+      next: (res) => {
+        alert('Product added successfully');
+        this.productForm.reset();
+        this.dialogRef.close('save');
+      },
+      error: () => {
+        alert('Error while adding the product');
+      },
+    });
+  }
+
+  updateProduct() {
+    this.api.putProduct(this.editData.id, this.productForm.value).subscribe({
+      next: (res) => {
+        alert('Product updated Successfully');
         this.productForm.reset();
         this.dialogRef.close('update');
       },
-      error:()=>{
-        alert("Error while updating the record!");
-      }
-    })
+      error: () => {
+        alert('Error while updating the record!');
+      },
+    });
   }
 
-  closeAddProductDialog(){
+  closeAddProductDialog() {
     this.dialogRef.close();
   }
 }

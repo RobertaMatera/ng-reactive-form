@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './components/addProduct/addProduct.component';
@@ -13,20 +13,23 @@ export class AppComponent implements OnInit {
   title = 'ng-reactive-form';
   dataSource!: MatTableDataSource<any>;
 
-  constructor(
-    private dialog: MatDialog,
-    private api: ApiService,
-  ) {}
+  constructor(private dialog: MatDialog, private api: ApiService) {}
 
   ngOnInit(): void {
     this.getAllProducts();
   }
 
-
   openDialog() {
-    this.dialog.open(AddProductComponent, {
-      width: '30%',
-    });
+    this.dialog
+      .open(AddProductComponent, {
+        width: '30%',
+      })
+      .afterClosed()
+      .subscribe((value) => {
+        if (value === 'save') {
+          this.getAllProducts();
+        }
+      });
   }
 
   getAllProducts() {
@@ -39,4 +42,5 @@ export class AppComponent implements OnInit {
       },
     });
   }
+
 }

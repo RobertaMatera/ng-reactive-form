@@ -14,5 +14,8 @@
     </button>
   </mat-toolbar>
 
-  <app-table [productDataSource]="dataSource"></app-table>
+  <app-table
+    [productDataSource]="dataSource"
+    (onSavedProduct)="getAllProducts()"
+  ></app-table>
 </header>

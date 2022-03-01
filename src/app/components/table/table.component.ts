@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { EventEmitter } from '@angular/core';
 import { AddProductComponent } from '../addProduct/addProduct.component';
 
 @Component({
@@ -27,16 +28,27 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   @Input() productDataSource!: MatTableDataSource<any>;
+  @Output() onSavedProduct = new EventEmitter<string>();
 
-  constructor(private dialog: MatDialog,) {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
 
   editProduct(row: any) {
     this.dialog.open(AddProductComponent, {
       width: '30%',
       data: row
+    }).afterClosed()
+    .subscribe((value: string) => {
+      if (value === 'update') {
+        this.onSavedProduct.emit(value);
+      }
     });
+  }
+
+  deleteProduct(row: any){
+   console.log(row)
   }
 
   applyFilter(event: Event) {
@@ -47,4 +59,7 @@ export class TableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 }
+
+

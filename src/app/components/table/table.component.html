@@ -62,7 +62,11 @@
             >
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-fab class="edit-delete-btn delete-btn">
+            <button
+              mat-fab
+              class="edit-delete-btn delete-btn"
+              (click)="deleteProduct(row)"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </td>
