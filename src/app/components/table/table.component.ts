@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, Output, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -12,7 +12,7 @@ import { ApiService } from '../../services/api.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements AfterViewInit {
   displayedColumns: string[] = [
     'productName',
     'productCategory',
@@ -33,7 +33,10 @@ export class TableComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private api: ApiService) {}
 
-  ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   editProduct(row: any) {
     this.dialog.open(AddProductComponent, {
@@ -62,12 +65,13 @@ export class TableComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.productDataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
+
 
 }
 
