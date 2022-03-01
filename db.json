@@ -53,6 +53,15 @@
       "productComment": "Turpis nunc eget lorem dolor sed viverra ipsum",
       "date": "2022-03-22T23:00:00.000Z",
       "id": 6
+    },
+    {
+      "productName": "tv ",
+      "productCategory": "Electronics",
+      "productFreshness": "Refurbished",
+      "productPrice": 75,
+      "productComment": "Eget arcu dictum varius duis at.",
+      "date": "2022-03-08T23:00:00.000Z",
+      "id": 7
     }
   ],
   "comments": [

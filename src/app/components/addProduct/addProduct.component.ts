@@ -29,8 +29,6 @@ export class AddProductComponent implements OnInit {
       date: ['', Validators.required],
     });
 
-    console.log(this.editData);
-
     if (this.editData) {
       this.productForm.controls['productName'].setValue(
         this.editData.productName
@@ -90,4 +88,5 @@ export class AddProductComponent implements OnInit {
   closeAddProductDialog() {
     this.dialogRef.close();
   }
+
 }
