@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EventEmitter } from '@angular/core';
 import { AddProductComponent } from '../addProduct/addProduct.component';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-table',
@@ -28,9 +29,9 @@ export class TableComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   @Input() productDataSource!: MatTableDataSource<any>;
-  @Output() onSavedProduct = new EventEmitter<string>();
+  @Output() onSaveBtnClicked = new EventEmitter();
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private api: ApiService) {}
 
   ngOnInit(): void {}
 
@@ -42,13 +43,22 @@ export class TableComponent implements OnInit {
     }).afterClosed()
     .subscribe((value: string) => {
       if (value === 'update') {
-        this.onSavedProduct.emit(value);
+        this.onSaveBtnClicked.emit();
       }
     });
   }
 
-  deleteProduct(row: any){
-   console.log(row)
+  deleteProduct(id: number){
+   this.api.deleteProduct(id).subscribe({
+     next:(res) => {
+       alert("Product deleted successfully! 😃");
+       this.onSaveBtnClicked.emit()
+     },
+     error: () => {
+       alert("Error while deleting the product! 😭")
+     }
+   })
+
   }
 
   applyFilter(event: Event) {
